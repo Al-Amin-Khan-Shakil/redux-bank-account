@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 function CreateCustomer() {
-  const [fullName, setFullName] = useState("");
-  const [nationalId, setNationalId] = useState("");
+  const [fullName, setFullName] = useState('');
+  const [nationalId, setNationalId] = useState('');
 
   function handleClick() {}
 
@@ -16,7 +16,7 @@ function CreateCustomer() {
             <input
               value={fullName}
               id="full-name"
-              onChange={(e) => setFullname(e.target.value)}
+              onChange={(e) => setFullName(e.target.value)}
             />
           </label>
         </div>

@@ -1,6 +1,8 @@
-import "./App.css";
-import CreateCustomer from "./components/CreateCustomer";
-import Customer from "./components/Customer";
+import './App.css';
+import AccountOperations from './components/AccountOperations';
+import BalanceDisplay from './components/BalanceDisplay';
+import CreateCustomer from './components/CreateCustomer';
+import Customer from './components/Customer';
 
 function App() {
   return (
@@ -8,6 +10,8 @@ function App() {
       <h1>🏦 The React-Redux Bank ⚛️</h1>
       <CreateCustomer />
       <Customer />
+      <AccountOperations />
+      <BalanceDisplay />
     </div>
   );
 }
