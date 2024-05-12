@@ -1,16 +1,16 @@
 const initialStateAccount = {
   balance: 0,
   loan: 0,
-  loanPurpose: "",
+  loanPurpose: '',
 };
 
 export default function accountReducer(state = initialStateAccount, action) {
   switch (action.type) {
-    case "account/deposit":
+    case 'account/deposit':
       return { ...state, balance: state.balance + action.payload };
-    case "account/withdraw":
+    case 'account/withdraw':
       return { ...state, balance: state.balance - action.payload };
-    case "account/requestLoan":
+    case 'account/requestLoan':
       if (state.loan > 0) return state;
       return {
         ...state,
@@ -18,11 +18,11 @@ export default function accountReducer(state = initialStateAccount, action) {
         loanPurpose: action.payload.purpose,
         balance: state.balance + action.payload.amount,
       };
-    case "account/payLoan":
+    case 'account/payLoan':
       return {
         ...state,
         loan: 0,
-        loanPurpose: "",
+        loanPurpose: '',
         balance: state.balance - state.loan,
       };
     default:
@@ -30,18 +30,19 @@ export default function accountReducer(state = initialStateAccount, action) {
   }
 }
 
-export const deposit = (amount) => {
-  return { type: "account/deposit", payload: amount };
-};
+export const deposit = (amount) => ({
+  type: 'account/deposit',
+  payload: amount,
+});
 
-export const withdraw = (amount) => {
-  return { type: "account/withdraw", payload: amount };
-};
+export const withdraw = (amount) => ({
+  type: 'account/withdraw',
+  payload: amount,
+});
 
-export const requestLoan = (amount, purpose) => {
-  return { type: "account/requestLoan", payload: { amount, purpose } };
-};
+export const requestLoan = (amount, purpose) => ({
+  type: 'account/requestLoan',
+  payload: { amount, purpose },
+});
 
-export const payLoan = () => {
-  return { type: "account/payLoan", payload: amount };
-};
+export const payLoan = () => ({ type: 'account/payLoan' });
