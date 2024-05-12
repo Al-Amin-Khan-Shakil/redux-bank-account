@@ -13,7 +13,11 @@ function AccountOperations() {
   const [loanAmount, setLoanAmount] = useState('');
   const [loanPurpose, setLoanPurpose] = useState('');
   const [currency, setCurrency] = useState('');
-  const { loan, balance } = useSelector((state) => state.account);
+  const {
+    loan,
+    balance,
+    loanPurpose: currentLoanPurpose,
+  } = useSelector((state) => state.account);
 
   const dispatch = useDispatch();
 
@@ -27,11 +31,14 @@ function AccountOperations() {
 
   const handleWithdrawal = () => {
     if (!withdrawalAmount) return;
+
     if (balance < withdrawalAmount) {
       dispatch(withdraw(balance));
     } else {
       dispatch(withdraw(withdrawalAmount));
     }
+
+    setWithdrawalAmount('');
   };
 
   const handleRequestLoan = () => {
@@ -116,8 +123,10 @@ function AccountOperations() {
         </div>
         <div>
           <span>
-            Pay back
+            Pay back $
             {loan}
+            {' '}
+            {currentLoanPurpose}
           </span>
           <button onClick={handlePayLoan} type="button">
             Pay loan
