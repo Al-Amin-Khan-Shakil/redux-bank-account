@@ -19,7 +19,7 @@ function CreateCustomer() {
       <div className="inputs">
         <div>
           <label htmlFor="full-name">
-            Customer full name
+            <span>Customer full name</span>
             <input
               value={fullName}
               id="full-name"
@@ -29,7 +29,7 @@ function CreateCustomer() {
         </div>
         <div>
           <label htmlFor="national-id">
-            National ID
+            <span>National ID</span>
             <input
               value={nationalId}
               onChange={(e) => setNationalId(e.target.value)}

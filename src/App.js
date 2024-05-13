@@ -1,5 +1,4 @@
 import { useSelector } from 'react-redux';
-import './App.css';
 import AccountOperations from './components/AccountOperations';
 import BalanceDisplay from './components/BalanceDisplay';
 import CreateCustomer from './components/CreateCustomer';

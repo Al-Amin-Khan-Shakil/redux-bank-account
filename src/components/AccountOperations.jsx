@@ -17,7 +17,7 @@ function AccountOperations() {
     loan,
     balance,
     loanPurpose: currentLoanPurpose,
-  } = useSelector((state) => state.account);
+  } = useSelector((store) => store.account);
 
   const dispatch = useDispatch();
 
@@ -60,8 +60,8 @@ function AccountOperations() {
       <div className="inputs">
         <div>
           <label htmlFor="deposit">
-            Deposit
-            {' '}
+            <span>Deposit</span>
+
             <input
               id="deposit"
               type="number"
@@ -79,13 +79,13 @@ function AccountOperations() {
           </select>
           <button onClick={handleDeposit} type="button">
             Deposit
+            {' '}
             {depositAmount}
           </button>
         </div>
         <div>
           <label htmlFor="withdraw">
-            Withdraw
-            {' '}
+            <span>Withdraw</span>
             <input
               id="withdraw"
               type="number"
@@ -101,8 +101,7 @@ function AccountOperations() {
         </div>
         <div>
           <label htmlFor="loan">
-            Request loan
-            {' '}
+            <span>Request loan</span>
             <input
               id="loan"
               type="number"
@@ -121,17 +120,20 @@ function AccountOperations() {
             Request loan
           </button>
         </div>
-        <div>
-          <span>
-            Pay back $
-            {loan}
+        {loan > 0 && (
+          <div>
+            <span style={{ color: 'red' }}>
+              Pay back $
+              {loan}
+              {' '}
+              {currentLoanPurpose}
+            </span>
             {' '}
-            {currentLoanPurpose}
-          </span>
-          <button onClick={handlePayLoan} type="button">
-            Pay loan
-          </button>
-        </div>
+            <button onClick={handlePayLoan} type="button">
+              Pay loan
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

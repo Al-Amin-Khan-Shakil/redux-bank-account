@@ -4,7 +4,8 @@ function Customer() {
   const customer = useSelector((store) => store.customer.fullName);
   return (
     <h2>
-      👋 Welcome,
+      <span>👋 Welcome,</span>
+      {' '}
       {customer}
     </h2>
   );
