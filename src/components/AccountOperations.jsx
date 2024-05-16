@@ -5,14 +5,14 @@ import {
   withdraw,
   requestLoan,
   payLoan,
-} from '../slices/accountSlice';
+} from '../slices/accountSlice-v2';
 
 function AccountOperations() {
   const [depositAmount, setDepositAmount] = useState('');
   const [withdrawalAmount, setWithdrawalAmount] = useState('');
   const [loanAmount, setLoanAmount] = useState('');
   const [loanPurpose, setLoanPurpose] = useState('');
-  const [currency, setCurrency] = useState('');
+  const [currency, setCurrency] = useState('USD');
   const {
     loan,
     balance,
@@ -24,9 +24,9 @@ function AccountOperations() {
   const handleDeposit = () => {
     if (!depositAmount) return;
 
-    dispatch(deposit(depositAmount));
+    dispatch(deposit(depositAmount, currency));
 
-    setDepositAmount('');
+    setDepositAmount('USD');
   };
 
   const handleWithdrawal = () => {
