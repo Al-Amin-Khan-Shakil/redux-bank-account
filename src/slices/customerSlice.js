@@ -29,4 +29,7 @@ export const createCustomer = (fullName, nationalID) => ({
   },
 });
 
-export const updateName = (fullName) => ({ type: 'account/updateName', payload: fullName });
+export const updateName = (fullName) => ({
+  type: 'customer/updateName',
+  payload: fullName,
+});
