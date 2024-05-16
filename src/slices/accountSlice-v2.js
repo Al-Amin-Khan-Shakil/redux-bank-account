@@ -33,6 +33,7 @@ const accountSlice = createSlice({
       },
 
       reducer(state, action) {
+        if (action.payload.amount < 0) return state;
         if (state.loan > 0) return state;
 
         return {
