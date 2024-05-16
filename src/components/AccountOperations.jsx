@@ -12,7 +12,7 @@ function AccountOperations() {
   const [withdrawalAmount, setWithdrawalAmount] = useState('');
   const [loanAmount, setLoanAmount] = useState('');
   const [loanPurpose, setLoanPurpose] = useState('');
-  const [currency, setCurrency] = useState('');
+  const [currency, setCurrency] = useState('USD');
   const {
     loan,
     balance,
@@ -28,7 +28,7 @@ function AccountOperations() {
     dispatch(deposit(depositAmount, currency));
 
     setDepositAmount('');
-    setCurrency('');
+    setCurrency('USD');
   };
 
   const handleWithdrawal = () => {
@@ -44,7 +44,7 @@ function AccountOperations() {
   };
 
   const handleRequestLoan = () => {
-    if (loan < 0 || !loanAmount || !loanPurpose) return;
+    if (!loanAmount || !loanPurpose) return;
 
     dispatch(requestLoan(loanAmount, loanPurpose));
 
